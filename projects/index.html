@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Projects - Tarek Sawyer Nassar -
+Technology Expert | Strategy & Architecture
+        </title>
+        <meta
+            name="description"
+            content="Portfolio of technical projects and implementations by Tarek
+Sawyer Nassar, Technology Architect & Strategic Consultant."
+        />
+
+          <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #1f2937;
+        --secondary-color: #111827;
+        --accent-color: #374151;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --background-light: #f9fafb;
+        --white: #ffffff;
+        --border-light: #e5e7eb;
+    }
+
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--secondary-color)
+        );
+        color: var(--white);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #d1d5db;
+    }
+
+    /* Section Styles */
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-alt {
+        background-color: var(--background-light);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--text-dark);
+        color: var(--white);
+        padding: 3rem 0 1.5rem;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        color: #9ca3af;
+        text-decoration: none;
+        line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+        color: var(--white);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #374151;
+        padding-top: 1.5rem;
+        color: #9ca3af;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+ 
+<style>
+    /* Page Header */
+    .page-header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--secondary-color)
+        );
+        color: var(--white);
+        padding: 120px 0 60px;
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .page-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border-light);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--accent-color)
+        );
+        color: var(--white);
+        padding: 1.5rem 2rem;
+    }
+
+    .project-header h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-type {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .project-body {
+        padding: 2rem;
+    }
+
+    .project-body p {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-technologies {
+        margin-bottom: 1.5rem;
+    }
+
+    .project-technologies h4 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        background: var(--background-light);
+        color: var(--text-dark);
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        border: 1px solid var(--border-light);
+    }
+
+    .project-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .project-link {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .project-link-primary {
+        background-color: var(--primary-color);
+        color: var(--white);
+    }
+
+    .project-link-primary:hover {
+        background-color: var(--secondary-color);
+    }
+
+    .project-link-secondary {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .project-link-secondary:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+        <!-- Umami Analytics -->
+        <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="4d0865db-b731-41ce-a812-b6a2d64bdd6f"
+        ></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+    <nav class="container">
+        <div class="logo">Tarek Sawyer Nassar, LLC</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/#offerings">Offerings</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+        <!-- Main Content -->
+        
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Projects</h1>
+        <p>
+            A selection of technical projects demonstrating expertise in
+            architecture, development, and implementation across various domains
+            and technologies.
+        </p>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="section">
+    <div class="container">
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>NetPrism Network Management Optimization</h3>
+                    <div class="project-type">
+                        Enterprise Software
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Significant contributor to optimizing Fujitsu's network management software (NetPrism), achieving a <strong>1400% performance improvement</strong>. Worked on R&amp;D for business process management software and served as technical liaison between development teams. Leveraged deep understanding of distributed systems and performance profiling to identify and eliminate bottlenecks.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">C++</span>
+                            
+                            <span class="tech-tag">Java&#x2F;RMI</span>
+                            
+                            <span class="tech-tag">CORBA</span>
+                            
+                            <span class="tech-tag">IBM Rational Rose</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;www.fujitsu.com"
+                            class="project-link project-link-primary"
+                        >
+                            About Fujitsu
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>iWhiskey - iOS Reference App</h3>
+                    <div class="project-type">
+                        Mobile Application
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Co-founded Jolt OS and created iWhiskey, a comprehensive whiskey reference and database application for iPhone. The app was <strong>reviewed by MacWorld</strong> and achieved <strong>4+ star ratings</strong>. Notable in its specific market space, iWhiskey demonstrated expertise in iOS development, UI design, and consumer application development. Responsible for 95%+ of all code and technical aspects.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Objective-C</span>
+                            
+                            <span class="tech-tag">Cocoa Touch</span>
+                            
+                            <span class="tech-tag">Core Data</span>
+                            
+                            <span class="tech-tag">SQLite</span>
+                            
+                            <span class="tech-tag">Xcode</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;apps.apple.com"
+                            class="project-link project-link-primary"
+                        >
+                            App Store
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>iPad Day One App Launch</h3>
+                    <div class="project-type">
+                        Mobile Application
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Launched <strong>two applications on iPad's first day</strong> (April 3, 2010) as co-founder of Jolt OS. This achievement demonstrated rapid adaptation to new platforms and ability to deliver under tight deadlines. The apps were part of a portfolio of 10 iOS applications (8 iPhone, 2 iPad), several receiving 4+ star ratings. Featured in an interview with <strong>T3 Middle East</strong> about iOS development.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Objective-C</span>
+                            
+                            <span class="tech-tag">Cocoa Touch</span>
+                            
+                            <span class="tech-tag">Core Animation</span>
+                            
+                            <span class="tech-tag">UIKit</span>
+                            
+                            <span class="tech-tag">Xcode</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="#"
+                            class="project-link project-link-primary"
+                        >
+                            T3 Interview
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Eastman Chemical B2B Auction Platform</h3>
+                    <div class="project-type">
+                        Enterprise B2B
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Consulted on the customization and implementation of Moai Technologies' B2B auction software (LiveExchange) for Eastman Chemical. This project was a <strong>significant success that resulted in a case study</strong> used by Moai to acquire additional clients. Gathered requirements, performed implementations and integrations, and helped establish best practices for enterprise B2B auction platforms.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Java</span>
+                            
+                            <span class="tech-tag">J2EE</span>
+                            
+                            <span class="tech-tag">BEA WebLogic</span>
+                            
+                            <span class="tech-tag">JSP</span>
+                            
+                            <span class="tech-tag">CyberSource</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="#"
+                            class="project-link project-link-primary"
+                        >
+                            About Moai
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>ForestExpress B2B Marketplace</h3>
+                    <div class="project-type">
+                        Enterprise B2B
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Consulted on the implementation of a B2B auction marketplace for ForestExpress, a joint venture startup consisting of major American paper and timber companies. Worked on customization of Moai's B2B auction software, requirements gathering, and system integration. Demonstrated expertise in enterprise technology consulting and working with large-scale industry consortiums.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Java</span>
+                            
+                            <span class="tech-tag">J2EE</span>
+                            
+                            <span class="tech-tag">BEA WebLogic</span>
+                            
+                            <span class="tech-tag">Servlets</span>
+                            
+                            <span class="tech-tag">CyberCash</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="#"
+                            class="project-link project-link-primary"
+                        >
+                            Project Details
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Aircraft Mission Planning System</h3>
+                    <div class="project-type">
+                        Defense &#x2F; Government
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Provided architectural and implementation guidance for a U.S. Navy Aircraft Mission Planning System at NAWCWD. Led the Governance Working Group, building it from the ground up and presenting to <strong>400+ personnel</strong> on governance development. Mentored cross-functional teams on microservices architecture, containerization, and modern development practices. Received an award for mentoring a government CS intern on Android development.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Microservices</span>
+                            
+                            <span class="tech-tag">Kubernetes</span>
+                            
+                            <span class="tech-tag">C#&#x2F;.NET</span>
+                            
+                            <span class="tech-tag">Java&#x2F;Spring Boot</span>
+                            
+                            <span class="tech-tag">Istio</span>
+                            
+                            <span class="tech-tag">Helm</span>
+                            
+                            <span class="tech-tag">Terraform</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;www.navair.navy.mil"
+                            class="project-link project-link-primary"
+                        >
+                            About NAVAIR
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Global Mapping System Cloud Migration</h3>
+                    <div class="project-type">
+                        Defense &#x2F; Government
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Provided architectural and implementation guidance for migrating a military Global Mapping System from desktop to cloud. Led front-end development using NextJS and TypeScript, working within a containerized microservices architecture on Red Hat OpenShift. Ensured the migration maintained security requirements while modernizing the technology stack for improved scalability and maintainability.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Red Hat OpenShift</span>
+                            
+                            <span class="tech-tag">Kubernetes</span>
+                            
+                            <span class="tech-tag">NextJS</span>
+                            
+                            <span class="tech-tag">TypeScript</span>
+                            
+                            <span class="tech-tag">Docker</span>
+                            
+                            <span class="tech-tag">GitLab</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;www.navair.navy.mil"
+                            class="project-link project-link-primary"
+                        >
+                            About NAVAIR
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Gozo - Blockchain Loyalty Exchange</h3>
+                    <div class="project-type">
+                        Blockchain &#x2F; Cryptocurrency
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Assisted in sales and whitepaper writing for Gozo, a blockchain-based exchange for loyalty rewards. The platform enabled conversion and trading of loyalty points across different programs using blockchain technology. Contributed technical architecture insights and helped communicate complex blockchain concepts to potential investors and partners.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Blockchain</span>
+                            
+                            <span class="tech-tag">Stellar</span>
+                            
+                            <span class="tech-tag">Solana</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="#"
+                            class="project-link project-link-primary"
+                        >
+                            Whitepaper
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Cardano Cryptocurrency Sentiment Analysis</h3>
+                    <div class="project-type">
+                        AI &#x2F; Machine Learning
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Developed a sentiment analysis system to classify Twitter posts regarding Cardano cryptocurrency for price prediction purposes. Applied natural language processing and machine learning techniques to analyze social media sentiment and correlate it with cryptocurrency price movements. Demonstrated expertise in Python, data analysis, and emerging AI/ML technologies.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Python</span>
+                            
+                            <span class="tech-tag">Machine Learning</span>
+                            
+                            <span class="tech-tag">Twitter API</span>
+                            
+                            <span class="tech-tag">NLP</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;cardano.org"
+                            class="project-link project-link-primary"
+                        >
+                            About Cardano
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Epicor&#x2F;Shopify E-Commerce Integration</h3>
+                    <div class="project-type">
+                        E-Commerce Integration
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Developed an integration between Epicor ERP and Shopify e-commerce platform. Built microservices to synchronize inventory, orders, and product data between the two systems using REST APIs. Implemented custom Shopify Liquid templates and ensured reliable data flow for enterprise e-commerce operations.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">C#</span>
+                            
+                            <span class="tech-tag">REST</span>
+                            
+                            <span class="tech-tag">XML</span>
+                            
+                            <span class="tech-tag">Microservices</span>
+                            
+                            <span class="tech-tag">Shopify Liquid</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;www.shopify.com"
+                            class="project-link project-link-primary"
+                        >
+                            About Shopify
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>PeopleSoft EdWeb Educational System</h3>
+                    <div class="project-type">
+                        Enterprise Software
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p>Developed and consulted on EdWeb, PeopleSoft's educational enrollment system, during two contracts at PeopleSoft (later acquired by Oracle). Worked on taxation and credit card billing integration using CyberSource. Developed a survey system for students in PeopleSoft classes and performed system integrations across multiple enterprise platforms.</p>
+
+                    <div class="project-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="tech-tags">
+                            
+                            <span class="tech-tag">Java</span>
+                            
+                            <span class="tech-tag">J2EE</span>
+                            
+                            <span class="tech-tag">IBM WebSphere</span>
+                            
+                            <span class="tech-tag">JDBC</span>
+                            
+                            <span class="tech-tag">CyberSource</span>
+                            
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a
+                            href="https:&#x2F;&#x2F;www.oracle.com"
+                            class="project-link project-link-primary"
+                        >
+                            About Oracle (PeopleSoft)
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+        <!-- Footer -->
+        <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tarek Sawyer Nassar, LLC</h3>
+                <p>Technology Expert | Strategy & Architecture</p>
+                <p>Helping clients succeed on complex technical projects</p>
+            </div>
+            <div class="footer-section">
+                <h3>Offerings</h3>
+                <p><a href="/#offerings">Technical Strategy</a></p>
+                <p><a href="/#offerings">Technical Skills Acceleration</a></p>
+                <p><a href="/#offerings">Emerging Technologies</a></p>
+                <p><a href="/#offerings">Solutions Architecture</a></p>
+                <p><a href="/#offerings">Product-Centric Development</a></p>
+                <p><a href="/#offerings">Distributed Systems &amp; Microservices</a></p>
+                <p><a href="/#offerings">Cloud Strategy &amp; Migration</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>
+                    <a href="mailto:contact@tareksawyernassar.com"
+                        >contact@tareksawyernassar.com</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://www.linkedin.com/in/tarek-sawyer-nassar"
+                        target="_blank"
+                        >LinkedIn Profile</a
+                    >
+                </p>
+                <p>Los Angeles Metropolitan Area</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tarek Sawyer Nassar, LLC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+ 
+        <script>
+            // Add scroll effect to header
+            window.addEventListener("scroll", function () {
+                const header = document.querySelector("header");
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = "rgba(31, 41, 55, 0.95)";
+                    header.style.backdropFilter = "blur(10px)";
+                } else {
+                    header.style.backgroundColor = "";
+                    header.style.backdropFilter = "";
+                }
+            });
+        </script>
+        
+    </body>
+</html>
